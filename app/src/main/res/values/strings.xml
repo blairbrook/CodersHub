@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Coders Hub</string>
+    <string name="about_author">This App was built by Afolabi Funmilola</string>
+    <string name="email">afolabifunmilolac@gmail.com</string>
+    <string name="facebook_link"><a href="m.facebook.com/may.afolaoluwabi">facebook</a></string>
+    <string name="twitter_link"><a href="m.twitter.com/blairbrook">twitter</a></string>
+    <string name="about">About</string>
+    <string name="url">http://www.github.com</string>
+    <string name="share">SHARE</string>
+    <string name="username">Username</string>
+</resources>
