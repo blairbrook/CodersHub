@@ -23,19 +23,20 @@ public class ProfileDetailsActivity extends AppCompatActivity {
     ImageView photo;
     TextView profileUrl;
     Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_details);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent myIntent=getIntent();
+        Intent myIntent = getIntent();
         //get data from the previous activity
-        final Dev dev=(Dev) myIntent.getSerializableExtra("dev");
+        final Dev dev = (Dev) myIntent.getSerializableExtra("dev");
 
         //set and display Username
-        username=(TextView) findViewById(R.id.username);
-        username.setText("USERNAME: "+dev.getUsername());
+        username = (TextView) findViewById(R.id.username);
+        username.setText("USERNAME: " + dev.getUsername());
 
         //set and display GitHub Profile URL
         profileUrl=(TextView) findViewById(R.id.profile_url);
@@ -50,23 +51,23 @@ public class ProfileDetailsActivity extends AppCompatActivity {
                 .error(R.drawable.loading)
                 .into(photo);
 
-        //share button
+
+//share button
         btn=(Button) findViewById(R.id.share);
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String shareBody = "Check out this awesome developer @"+dev.getUsername()+", "+dev.getProfileUrl()+" .";
+                String shareBody = "Check out this awesome developer @" + dev.getUsername() + ", " + dev.getProfileUrl() + " .";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
         });
-
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem){
-        switch (menuItem.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
